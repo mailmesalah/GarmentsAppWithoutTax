@@ -1,0 +1,48 @@
+﻿<Window x:Class="WpfClientApp.Registers.UnitRegister"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:self="clr-namespace:ServerServiceInterface;assembly=ServerServiceInterface"
+        Title="Units" Height="619" Width="801" FontFamily="Century Gothic" Background="#FF101040" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" Topmost="True" TextOptions.TextFormattingMode="Display" FontSize="14" Foreground="White" FontWeight="SemiBold" BorderBrush="White" BorderThickness="2" ResizeMode="NoResize" Unloaded="Window_Unloaded">
+    <Window.Resources>
+        <Style TargetType="{x:Type TreeViewItem}">
+            <Setter Property="Foreground" Value="#FFFFFFFF"></Setter>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="FontWeight" Value="Bold" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="0,0,0,0" HorizontalAlignment="Right">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="233*"/>
+        </Grid.RowDefinitions>
+        <TreeView x:Name="mTreeUnitRegister" HorizontalAlignment="Left" Height="415" Margin="-754,34,0,0" VerticalAlignment="Top" Width="359" Background="#FF101040" Foreground="#FFFFFFFF" SelectedItemChanged="mTreeUnitRegister_SelectedItemChanged"/>
+        <Label HorizontalContentAlignment="Left"  Content="Basic Unit" Width="114" HorizontalAlignment="Left" Margin="-390,36,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.214,0.16" Foreground="White"/>
+        <ComboBox Name="mComboUnitGroups" Style="{DynamicResource ComboBoxAccountsStyle}" Background="#FF101040" Foreground="#FFFFFFFF" HorizontalAlignment="Left" Margin="-271,36,0,0" VerticalAlignment="Top" Width="249" Height="25" IsEditable="True" TabIndex="0">
+            <ComboBox.Resources>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="Background" Value="#FF101040"/>
+                    <Setter Property="Foreground" Value="#FFFFFFFF"/>
+                </Style>
+                <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="Blue"/>
+            </ComboBox.Resources>
+        </ComboBox>
+        <Label HorizontalContentAlignment="Left"  Content="Unit" Width="114" HorizontalAlignment="Left" Margin="-390,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.214,0.16" Foreground="White"/>
+        <TextBox Name="mTextBoxUnit" HorizontalAlignment="Left" Height="23" Margin="-271,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="249" RenderTransformOrigin="0.5,0.522" Background="#FF101040" Foreground="White" TabIndex="1" />
+        <Label HorizontalContentAlignment="Left"  Content="Unit Value" Width="114" HorizontalAlignment="Left" Margin="-390,94,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.214,0.16" Foreground="White"/>
+        <TextBox x:Name="mTextBoxUnitValue" HorizontalAlignment="Left" Height="23" Margin="-271,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="249" RenderTransformOrigin="0.5,0.522"  Background="#FF101040" Foreground="White" TabIndex="2"/>
+
+        <Button Name="mButtonAddGroup"  Content="New Basic Unit" HorizontalAlignment="Left" Margin="-754,520,0,0" VerticalAlignment="Top" Width="114" Height="35" Click="mButtonAddGroup_Click" TabIndex="15"/>
+        <Button Name="mButtonAddItem" Content="New Unit" HorizontalAlignment="Left" Margin="-635,520,0,0" VerticalAlignment="Top" Width="114" Height="35" Click="mButtonAddItem_Click" TabIndex="14"/>
+        <Button Name="mButtonDelete"  Content="Delete" HorizontalAlignment="Left" Margin="-374,520,0,0" VerticalAlignment="Top" Width="114" Height="35" Click="mButtonDelete_Click" TabIndex="16"/>
+        <Button Name="mButtonSave" Content="Save" HorizontalAlignment="Left" Margin="-255,520,0,0" VerticalAlignment="Top" Width="114" Height="35" TabIndex="13" Click="mButtonSave_Click"/>
+        <Button Name="mButtonClose" Content="Close" HorizontalAlignment="Left" Margin="-136,520,0,0" VerticalAlignment="Top" Width="114" Height="35" Click="mButtonClose_Click" TabIndex="19"/>
+
+        <TextBox Name="mTextBoxSearch" HorizontalAlignment="Left" Height="23" Margin="-754,454,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.5,0.522" Background="#FF101040" Foreground="White" TabIndex="17" TextChanged="mTextBoxSearch_TextChanged"/>
+        <Button x:Name="mButtonFindNext"  Content="Find Next" HorizontalAlignment="Left" Margin="-499,455,0,0" VerticalAlignment="Top" Width="104" Height="22" TabIndex="18" Click="mButtonFindNext_Click" />
+
+    </Grid>
+</Window>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AccountsDBModelStoreContainer" CdmEntityContainer="AccountsDBModelContainer">
+    <EntitySetMapping Name="LedgerRegisters">
+      <EntityTypeMapping TypeName="IsTypeOf(AccountsDBModel.LedgerRegister)">
+        <MappingFragment StoreEntitySet="LedgerRegisters">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Ledger" ColumnName="Ledger" />
+          <ScalarProperty Name="AlternateName" ColumnName="AlternateName" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address3" ColumnName="Address3" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="PinNo" ColumnName="PinNo" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="PanNo" ColumnName="PanNo" />
+          <ScalarProperty Name="SaleTaxNo" ColumnName="SaleTaxNo" />
+          <ScalarProperty Name="TinNo" ColumnName="TinNo" />
+          <ScalarProperty Name="IsEditable" ColumnName="IsEditable" />
+          <ScalarProperty Name="IsRemovable" ColumnName="IsRemovable" />
+          <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="GroupCode" ColumnName="GroupCode" />
+          <ScalarProperty Name="UniqueID" ColumnName="UniqueID" />
+          <ScalarProperty Name="Narration" ColumnName="Narration" />
+          <ScalarProperty Name="AGroupCode" ColumnName="AGroupCode" />
+          <ScalarProperty Name="BGroupCode" ColumnName="BGroupCode" />
+          <ScalarProperty Name="CGroupCode" ColumnName="CGroupCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LedgerTransactions">
+      <EntityTypeMapping TypeName="IsTypeOf(AccountsDBModel.LedgerTransactions)">
+        <MappingFragment StoreEntitySet="LedgerTransactions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BillNo" ColumnName="BillNo" />
+          <ScalarProperty Name="BillDate" ColumnName="BillDate" />
+          <ScalarProperty Name="BillType" ColumnName="BillType" />
+          <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
+          <ScalarProperty Name="LedgerCode" ColumnName="LedgerCode" />
+          <ScalarProperty Name="Ledger" ColumnName="Ledger" />
+          <ScalarProperty Name="Narration" ColumnName="Narration" />
+          <ScalarProperty Name="Debit" ColumnName="Debit" />
+          <ScalarProperty Name="Credit" ColumnName="Credit" />
+          <ScalarProperty Name="AGroupCode" ColumnName="AGroupCode" />
+          <ScalarProperty Name="BGroupCode" ColumnName="BGroupCode" />
+          <ScalarProperty Name="CGroupCode" ColumnName="CGroupCode" />
+          <ScalarProperty Name="CoLedger" ColumnName="CoLedger" />
+          <ScalarProperty Name="RefBillNo" ColumnName="RefBillNo" />
+          <ScalarProperty Name="RefBillDate" ColumnName="RefBillDate" />
+          <ScalarProperty Name="FinancialCode" ColumnName="FinancialCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CashReceipts">
+      <EntityTypeMapping TypeName="IsTypeOf(AccountsDBModel.CashReceipts)">
+        <MappingFragment StoreEntitySet="CashReceipts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BillNo" ColumnName="BillNo" />
+          <ScalarProperty Name="BillDate" ColumnName="BillDate" />
+          <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
+          <ScalarProperty Name="LedgerCode" ColumnName="LedgerCode" />
+          <ScalarProperty Name="Ledger" ColumnName="Ledger" />
+          <ScalarProperty Name="Narration" ColumnName="Narration" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="FinancialCode" ColumnName="FinancialCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

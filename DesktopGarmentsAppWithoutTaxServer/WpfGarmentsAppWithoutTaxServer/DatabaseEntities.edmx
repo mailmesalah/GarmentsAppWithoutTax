@@ -1,0 +1,541 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Database9001Model.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="barcode_generator">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="barcode" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bill_nos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="bill_type" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="financial_code" Type="varchar" MaxLength="10" />
+          <Property Name="bill_no" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ledger_register">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ledger_code" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ledger" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="alternate_name" Type="varchar" MaxLength="200" />
+          <Property Name="address1" Type="varchar" MaxLength="100" />
+          <Property Name="address2" Type="varchar" MaxLength="100" />
+          <Property Name="address3" Type="varchar" MaxLength="100" />
+          <Property Name="is_editable" Type="bool" />
+          <Property Name="is_removable" Type="bool" />
+          <Property Name="is_enabled" Type="bool" />
+          <Property Name="type" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="group_code" Type="varchar" MaxLength="20" />
+          <Property Name="special_code" Type="varchar" MaxLength="20" />
+          <Property Name="unique_id" Type="varchar" MaxLength="100" />
+          <Property Name="a_group_code" Type="varchar" MaxLength="20" />
+          <Property Name="b_group_code" Type="varchar" MaxLength="20" />
+          <Property Name="c_group_code" Type="varchar" MaxLength="20" />
+          <Property Name="details1" Type="varchar" MaxLength="200" />
+          <Property Name="details2" Type="varchar" MaxLength="200" />
+          <Property Name="details3" Type="varchar" MaxLength="200" />
+          <Property Name="details4" Type="varchar" MaxLength="200" />
+          <Property Name="details5" Type="varchar" MaxLength="200" />
+          <Property Name="details6" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="ledger_transactions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bill_no" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="bill_date_time" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="bill_type" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="serial_no" Type="int" Nullable="false" />
+          <Property Name="ledger_code" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ledger" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="narration" Type="varchar" MaxLength="150" />
+          <Property Name="debit" Type="decimal" Precision="30" Scale="5" />
+          <Property Name="credit" Type="decimal" Precision="30" Scale="5" />
+          <Property Name="a_group_code" Type="varchar" MaxLength="20" />
+          <Property Name="b_group_code" Type="varchar" MaxLength="20" />
+          <Property Name="c_group_code" Type="varchar" MaxLength="20" />
+          <Property Name="co_ledger" Type="varchar" MaxLength="100" />
+          <Property Name="ref_bill_no" Type="varchar" MaxLength="20" />
+          <Property Name="ref_bill_date_time" Type="datetime" Precision="0" />
+          <Property Name="financial_code" Type="longtext" Nullable="false" />
+        </EntityType>
+        <EntityType Name="product_properties">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_group_code" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="property_code" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="property" Type="varchar" MaxLength="30" />
+          <Property Name="property_type" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="product_property_code">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="product_register">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_code" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="product" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="alternate_name" Type="varchar" MaxLength="200" />
+          <Property Name="is_enabled" Type="bool" />
+          <Property Name="type" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="group_code" Type="varchar" MaxLength="20" />
+          <Property Name="stockin_unit_code" Type="varchar" MaxLength="20" />
+          <Property Name="stockout_unit_code" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="product_transactions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bill_no" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="bill_date_time" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="bill_type" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="supplier_code" Type="varchar" MaxLength="20" />
+          <Property Name="supplier" Type="varchar" MaxLength="100" />
+          <Property Name="supplier_address" Type="varchar" MaxLength="150" />
+          <Property Name="customer_code" Type="varchar" MaxLength="20" />
+          <Property Name="customer" Type="varchar" MaxLength="100" />
+          <Property Name="customer_address" Type="varchar" MaxLength="150" />
+          <Property Name="narration" Type="varchar" MaxLength="150" />
+          <Property Name="serial_no" Type="int" />
+          <Property Name="product_code" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="product" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="purchase_rate" Type="decimal" Precision="30" Scale="5" />
+          <Property Name="sales_rate" Type="decimal" Precision="30" Scale="5" />
+          <Property Name="mrp" Type="decimal" Precision="30" Scale="5" />
+          <Property Name="purchase_unit_code" Type="varchar" MaxLength="20" />
+          <Property Name="sales_unit_code" Type="varchar" MaxLength="20" />
+          <Property Name="purchase_unit_value" Type="decimal" Precision="30" Scale="5" />
+          <Property Name="sales_unit_value" Type="decimal" Precision="30" Scale="5" />
+          <Property Name="quantity" Type="decimal" Precision="30" Scale="5" />
+          <Property Name="group_code" Type="varchar" MaxLength="20" />
+          <Property Name="barcode" Type="varchar" MaxLength="20" />
+          <Property Name="extra_charges" Type="decimal" Precision="30" Scale="5" />
+          <Property Name="discounts" Type="decimal" Precision="30" Scale="5" />
+          <Property Name="advance" Type="decimal" Precision="30" Scale="5" />
+          <Property Name="ref_bill_no" Type="varchar" MaxLength="20" />
+          <Property Name="ref_bill_date_time" Type="datetime" Precision="0" />
+          <Property Name="financial_code" Type="longtext" Nullable="false" />
+          <Property Name="sales_unit" Type="varchar" MaxLength="30" />
+          <Property Name="purchase_unit" Type="varchar" MaxLength="30" />
+          <Property Name="unit_code" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="unit_value" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+          <Property Name="product_discount" Type="decimal" Precision="30" Scale="5" />
+          <Property Name="brand" Type="varchar" MaxLength="30" />
+          <Property Name="size" Type="varchar" MaxLength="30" />
+          <Property Name="colour" Type="varchar" MaxLength="30" />
+          <Property Name="brand_code" Type="varchar" MaxLength="20" />
+          <Property Name="size_code" Type="varchar" MaxLength="20" />
+          <Property Name="colour_code" Type="varchar" MaxLength="20" />
+          <Property Name="interstate_rate" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+          <Property Name="wholesale_rate" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="unit_register">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="unit_code" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="unit" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="unit_value" Type="decimal" Precision="30" Scale="5" />
+          <Property Name="type" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="group_code" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityContainer Name="Database9001ModelStoreContainer">
+          <EntitySet Name="barcode_generator" EntityType="Self.barcode_generator" Schema="database9006" store:Type="Tables" />
+          <EntitySet Name="bill_nos" EntityType="Self.bill_nos" Schema="database9006" store:Type="Tables" />
+          <EntitySet Name="ledger_register" EntityType="Self.ledger_register" Schema="database9006" store:Type="Tables" />
+          <EntitySet Name="ledger_transactions" EntityType="Self.ledger_transactions" Schema="database9006" store:Type="Tables" />
+          <EntitySet Name="product_properties" EntityType="Self.product_properties" Schema="database9006" store:Type="Tables" />
+          <EntitySet Name="product_property_code" EntityType="Self.product_property_code" Schema="database9006" store:Type="Tables" />
+          <EntitySet Name="product_register" EntityType="Self.product_register" Schema="database9006" store:Type="Tables" />
+          <EntitySet Name="product_transactions" EntityType="Self.product_transactions" Schema="database9006" store:Type="Tables" />
+          <EntitySet Name="unit_register" EntityType="Self.unit_register" Schema="database9006" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database9006Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Database9006Entities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="barcode_generator" EntityType="Database9006Model.barcode_generator" />
+          <EntitySet Name="ledger_register" EntityType="Database9006Model.ledger_register" />
+          <EntitySet Name="ledger_transactions" EntityType="Database9006Model.ledger_transactions" />
+          <EntitySet Name="product_properties" EntityType="Database9006Model.product_properties" />
+          <EntitySet Name="product_property_code" EntityType="Database9006Model.product_property_code" />
+          <EntitySet Name="product_register" EntityType="Database9006Model.product_register" />
+          <EntitySet Name="unit_register" EntityType="Database9006Model.unit_register" />
+          <EntitySet Name="product_transactions" EntityType="Database9006Model.product_transactions" />
+          <EntitySet Name="bill_nos" EntityType="Database9006Model.bill_nos" />
+        </EntityContainer>
+        <EntityType Name="barcode_generator">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="barcode" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ledger_register">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ledger_code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ledger" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="alternate_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="address1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="address2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="address3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="is_editable" Type="Boolean" />
+          <Property Name="is_removable" Type="Boolean" />
+          <Property Name="is_enabled" Type="Boolean" />
+          <Property Name="type" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="group_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="special_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="unique_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="a_group_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="b_group_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="c_group_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="details1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="details2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="details3" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="details4" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="details5" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="details6" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ledger_transactions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bill_no" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="bill_date_time" Type="DateTime" Nullable="false" />
+          <Property Name="bill_type" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="serial_no" Type="Int32" Nullable="false" />
+          <Property Name="ledger_code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ledger" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="narration" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="debit" Type="Decimal" />
+          <Property Name="credit" Type="Decimal" />
+          <Property Name="a_group_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="b_group_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="c_group_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="co_ledger" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ref_bill_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ref_bill_date_time" Type="DateTime" />
+          <Property Name="financial_code" Type="String" Nullable="false" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="product_properties">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_group_code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="property_code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="property" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="property_type" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="product_property_code">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="product_register">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="product" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="alternate_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="is_enabled" Type="Boolean" />
+          <Property Name="type" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="group_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="stockin_unit_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="stockout_unit_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="unit_register">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="unit_code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="unit" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="unit_value" Type="Decimal" />
+          <Property Name="type" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="group_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="product_transactions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bill_no" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="bill_date_time" Type="DateTime" Nullable="false" />
+          <Property Name="bill_type" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="supplier_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="supplier" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="supplier_address" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="customer_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="customer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="customer_address" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="narration" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="serial_no" Type="Int32" />
+          <Property Name="product_code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="product" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="purchase_rate" Type="Decimal" />
+          <Property Name="sales_rate" Type="Decimal" />
+          <Property Name="mrp" Type="Decimal" />
+          <Property Name="purchase_unit_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="sales_unit_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="purchase_unit_value" Type="Decimal" />
+          <Property Name="sales_unit_value" Type="Decimal" />
+          <Property Name="quantity" Type="Decimal" />
+          <Property Name="group_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="barcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="extra_charges" Type="Decimal" />
+          <Property Name="discounts" Type="Decimal" />
+          <Property Name="advance" Type="Decimal" />
+          <Property Name="ref_bill_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ref_bill_date_time" Type="DateTime" />
+          <Property Name="financial_code" Type="String" Nullable="false" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="sales_unit" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="purchase_unit" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="unit_code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="unit_value" Type="Decimal" Nullable="false" />
+          <Property Name="product_discount" Type="Decimal" />
+          <Property Name="brand" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="size" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="colour" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="brand_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="size_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="colour_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="interstate_rate" Type="Decimal" Nullable="false" />
+          <Property Name="wholesale_rate" Type="Decimal" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bill_nos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="bill_type" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="financial_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="bill_no" Type="Int32" Nullable="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Database9001ModelStoreContainer" CdmEntityContainer="Database9006Entities" >
+          <EntitySetMapping Name="barcode_generator">
+            <EntityTypeMapping TypeName="Database9006Model.barcode_generator">
+              <MappingFragment StoreEntitySet="barcode_generator">
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ledger_register">
+            <EntityTypeMapping TypeName="Database9006Model.ledger_register">
+              <MappingFragment StoreEntitySet="ledger_register">
+                <ScalarProperty Name="details6" ColumnName="details6" />
+                <ScalarProperty Name="details5" ColumnName="details5" />
+                <ScalarProperty Name="details4" ColumnName="details4" />
+                <ScalarProperty Name="details3" ColumnName="details3" />
+                <ScalarProperty Name="details2" ColumnName="details2" />
+                <ScalarProperty Name="details1" ColumnName="details1" />
+                <ScalarProperty Name="c_group_code" ColumnName="c_group_code" />
+                <ScalarProperty Name="b_group_code" ColumnName="b_group_code" />
+                <ScalarProperty Name="a_group_code" ColumnName="a_group_code" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+                <ScalarProperty Name="special_code" ColumnName="special_code" />
+                <ScalarProperty Name="group_code" ColumnName="group_code" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+                <ScalarProperty Name="is_removable" ColumnName="is_removable" />
+                <ScalarProperty Name="is_editable" ColumnName="is_editable" />
+                <ScalarProperty Name="address3" ColumnName="address3" />
+                <ScalarProperty Name="address2" ColumnName="address2" />
+                <ScalarProperty Name="address1" ColumnName="address1" />
+                <ScalarProperty Name="alternate_name" ColumnName="alternate_name" />
+                <ScalarProperty Name="ledger" ColumnName="ledger" />
+                <ScalarProperty Name="ledger_code" ColumnName="ledger_code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ledger_transactions">
+            <EntityTypeMapping TypeName="Database9006Model.ledger_transactions">
+              <MappingFragment StoreEntitySet="ledger_transactions">
+                <ScalarProperty Name="financial_code" ColumnName="financial_code" />
+                <ScalarProperty Name="ref_bill_date_time" ColumnName="ref_bill_date_time" />
+                <ScalarProperty Name="ref_bill_no" ColumnName="ref_bill_no" />
+                <ScalarProperty Name="co_ledger" ColumnName="co_ledger" />
+                <ScalarProperty Name="c_group_code" ColumnName="c_group_code" />
+                <ScalarProperty Name="b_group_code" ColumnName="b_group_code" />
+                <ScalarProperty Name="a_group_code" ColumnName="a_group_code" />
+                <ScalarProperty Name="credit" ColumnName="credit" />
+                <ScalarProperty Name="debit" ColumnName="debit" />
+                <ScalarProperty Name="narration" ColumnName="narration" />
+                <ScalarProperty Name="ledger" ColumnName="ledger" />
+                <ScalarProperty Name="ledger_code" ColumnName="ledger_code" />
+                <ScalarProperty Name="serial_no" ColumnName="serial_no" />
+                <ScalarProperty Name="bill_type" ColumnName="bill_type" />
+                <ScalarProperty Name="bill_date_time" ColumnName="bill_date_time" />
+                <ScalarProperty Name="bill_no" ColumnName="bill_no" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="product_properties">
+            <EntityTypeMapping TypeName="Database9006Model.product_properties">
+              <MappingFragment StoreEntitySet="product_properties">
+                <ScalarProperty Name="property_type" ColumnName="property_type" />
+                <ScalarProperty Name="property" ColumnName="property" />
+                <ScalarProperty Name="property_code" ColumnName="property_code" />
+                <ScalarProperty Name="product_group_code" ColumnName="product_group_code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="product_property_code">
+            <EntityTypeMapping TypeName="Database9006Model.product_property_code">
+              <MappingFragment StoreEntitySet="product_property_code">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="product_register">
+            <EntityTypeMapping TypeName="Database9006Model.product_register">
+              <MappingFragment StoreEntitySet="product_register">
+                <ScalarProperty Name="stockout_unit_code" ColumnName="stockout_unit_code" />
+                <ScalarProperty Name="stockin_unit_code" ColumnName="stockin_unit_code" />
+                <ScalarProperty Name="group_code" ColumnName="group_code" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+                <ScalarProperty Name="alternate_name" ColumnName="alternate_name" />
+                <ScalarProperty Name="product" ColumnName="product" />
+                <ScalarProperty Name="product_code" ColumnName="product_code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="unit_register">
+            <EntityTypeMapping TypeName="Database9006Model.unit_register">
+              <MappingFragment StoreEntitySet="unit_register">
+                <ScalarProperty Name="group_code" ColumnName="group_code" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="unit_value" ColumnName="unit_value" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="unit_code" ColumnName="unit_code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="product_transactions">
+            <EntityTypeMapping TypeName="Database9006Model.product_transactions">
+              <MappingFragment StoreEntitySet="product_transactions">
+                <ScalarProperty Name="wholesale_rate" ColumnName="wholesale_rate" />
+                <ScalarProperty Name="interstate_rate" ColumnName="interstate_rate" />
+                <ScalarProperty Name="colour_code" ColumnName="colour_code" />
+                <ScalarProperty Name="size_code" ColumnName="size_code" />
+                <ScalarProperty Name="brand_code" ColumnName="brand_code" />
+                <ScalarProperty Name="colour" ColumnName="colour" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="product_discount" ColumnName="product_discount" />
+                <ScalarProperty Name="unit_value" ColumnName="unit_value" />
+                <ScalarProperty Name="unit_code" ColumnName="unit_code" />
+                <ScalarProperty Name="purchase_unit" ColumnName="purchase_unit" />
+                <ScalarProperty Name="sales_unit" ColumnName="sales_unit" />
+                <ScalarProperty Name="financial_code" ColumnName="financial_code" />
+                <ScalarProperty Name="ref_bill_date_time" ColumnName="ref_bill_date_time" />
+                <ScalarProperty Name="ref_bill_no" ColumnName="ref_bill_no" />
+                <ScalarProperty Name="advance" ColumnName="advance" />
+                <ScalarProperty Name="discounts" ColumnName="discounts" />
+                <ScalarProperty Name="extra_charges" ColumnName="extra_charges" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="group_code" ColumnName="group_code" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="sales_unit_value" ColumnName="sales_unit_value" />
+                <ScalarProperty Name="purchase_unit_value" ColumnName="purchase_unit_value" />
+                <ScalarProperty Name="sales_unit_code" ColumnName="sales_unit_code" />
+                <ScalarProperty Name="purchase_unit_code" ColumnName="purchase_unit_code" />
+                <ScalarProperty Name="mrp" ColumnName="mrp" />
+                <ScalarProperty Name="sales_rate" ColumnName="sales_rate" />
+                <ScalarProperty Name="purchase_rate" ColumnName="purchase_rate" />
+                <ScalarProperty Name="product" ColumnName="product" />
+                <ScalarProperty Name="product_code" ColumnName="product_code" />
+                <ScalarProperty Name="serial_no" ColumnName="serial_no" />
+                <ScalarProperty Name="narration" ColumnName="narration" />
+                <ScalarProperty Name="customer_address" ColumnName="customer_address" />
+                <ScalarProperty Name="customer" ColumnName="customer" />
+                <ScalarProperty Name="customer_code" ColumnName="customer_code" />
+                <ScalarProperty Name="supplier_address" ColumnName="supplier_address" />
+                <ScalarProperty Name="supplier" ColumnName="supplier" />
+                <ScalarProperty Name="supplier_code" ColumnName="supplier_code" />
+                <ScalarProperty Name="bill_type" ColumnName="bill_type" />
+                <ScalarProperty Name="bill_date_time" ColumnName="bill_date_time" />
+                <ScalarProperty Name="bill_no" ColumnName="bill_no" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bill_nos">
+            <EntityTypeMapping TypeName="Database9006Model.bill_nos">
+              <MappingFragment StoreEntitySet="bill_nos">
+                <ScalarProperty Name="bill_no" ColumnName="bill_no" />
+                <ScalarProperty Name="financial_code" ColumnName="financial_code" />
+                <ScalarProperty Name="bill_type" ColumnName="bill_type" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DDLGenerationTemplate" Value="$(VSEFTools)\DBGen\SSDLToMySQL.tt" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

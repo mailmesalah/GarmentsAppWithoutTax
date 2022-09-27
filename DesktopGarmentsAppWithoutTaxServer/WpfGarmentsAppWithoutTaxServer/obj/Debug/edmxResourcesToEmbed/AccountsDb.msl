@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StoreContainer" CdmEntityContainer="AccountsdbEntities">
+    <EntitySetMapping Name="bank_deposits">
+      <EntityTypeMapping TypeName="AccountsdbModel.bank_deposits">
+        <MappingFragment StoreEntitySet="bank_deposits">
+          <ScalarProperty Name="bank" ColumnName="bank" />
+          <ScalarProperty Name="bank_code" ColumnName="bank_code" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="financial_code" ColumnName="financial_code" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="narration" ColumnName="narration" />
+          <ScalarProperty Name="ledger" ColumnName="ledger" />
+          <ScalarProperty Name="ledger_code" ColumnName="ledger_code" />
+          <ScalarProperty Name="serial_no" ColumnName="serial_no" />
+          <ScalarProperty Name="bill_date_time" ColumnName="bill_date_time" />
+          <ScalarProperty Name="bill_no" ColumnName="bill_no" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bank_withdrawals">
+      <EntityTypeMapping TypeName="AccountsdbModel.bank_withdrawals">
+        <MappingFragment StoreEntitySet="bank_withdrawals">
+          <ScalarProperty Name="bank" ColumnName="bank" />
+          <ScalarProperty Name="bank_code" ColumnName="bank_code" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="financial_code" ColumnName="financial_code" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="narration" ColumnName="narration" />
+          <ScalarProperty Name="ledger" ColumnName="ledger" />
+          <ScalarProperty Name="ledger_code" ColumnName="ledger_code" />
+          <ScalarProperty Name="serial_no" ColumnName="serial_no" />
+          <ScalarProperty Name="bill_date_time" ColumnName="bill_date_time" />
+          <ScalarProperty Name="bill_no" ColumnName="bill_no" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bill_nos">
+      <EntityTypeMapping TypeName="AccountsdbModel.bill_nos">
+        <MappingFragment StoreEntitySet="bill_nos">
+          <ScalarProperty Name="financial_code" ColumnName="financial_code" />
+          <ScalarProperty Name="sales_return" ColumnName="sales_return" />
+          <ScalarProperty Name="sales" ColumnName="sales" />
+          <ScalarProperty Name="purchase_return" ColumnName="purchase_return" />
+          <ScalarProperty Name="purchase" ColumnName="purchase" />
+          <ScalarProperty Name="opening_balance" ColumnName="opening_balance" />
+          <ScalarProperty Name="ledger_transaction" ColumnName="ledger_transaction" />
+          <ScalarProperty Name="ledger_register" ColumnName="ledger_register" />
+          <ScalarProperty Name="journal_voucher" ColumnName="journal_voucher" />
+          <ScalarProperty Name="cash_receipt" ColumnName="cash_receipt" />
+          <ScalarProperty Name="cash_payment" ColumnName="cash_payment" />
+          <ScalarProperty Name="bank_withdrawal" ColumnName="bank_withdrawal" />
+          <ScalarProperty Name="bank_deposit" ColumnName="bank_deposit" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cash_payments">
+      <EntityTypeMapping TypeName="AccountsdbModel.cash_payments">
+        <MappingFragment StoreEntitySet="cash_payments">
+          <ScalarProperty Name="financial_code" ColumnName="financial_code" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="narration" ColumnName="narration" />
+          <ScalarProperty Name="ledger" ColumnName="ledger" />
+          <ScalarProperty Name="ledger_code" ColumnName="ledger_code" />
+          <ScalarProperty Name="serial_no" ColumnName="serial_no" />
+          <ScalarProperty Name="bill_date_time" ColumnName="bill_date_time" />
+          <ScalarProperty Name="bill_no" ColumnName="bill_no" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cash_receipts">
+      <EntityTypeMapping TypeName="AccountsdbModel.cash_receipts">
+        <MappingFragment StoreEntitySet="cash_receipts">
+          <ScalarProperty Name="financial_code" ColumnName="financial_code" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="narration" ColumnName="narration" />
+          <ScalarProperty Name="ledger" ColumnName="ledger" />
+          <ScalarProperty Name="ledger_code" ColumnName="ledger_code" />
+          <ScalarProperty Name="serial_no" ColumnName="serial_no" />
+          <ScalarProperty Name="bill_date_time" ColumnName="bill_date_time" />
+          <ScalarProperty Name="bill_no" ColumnName="bill_no" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="journal_vouchers">
+      <EntityTypeMapping TypeName="AccountsdbModel.journal_vouchers">
+        <MappingFragment StoreEntitySet="journal_vouchers">
+          <ScalarProperty Name="financial_code" ColumnName="financial_code" />
+          <ScalarProperty Name="credit" ColumnName="credit" />
+          <ScalarProperty Name="debit" ColumnName="debit" />
+          <ScalarProperty Name="narration" ColumnName="narration" />
+          <ScalarProperty Name="ledger" ColumnName="ledger" />
+          <ScalarProperty Name="ledger_code" ColumnName="ledger_code" />
+          <ScalarProperty Name="serial_no" ColumnName="serial_no" />
+          <ScalarProperty Name="bill_date_time" ColumnName="bill_date_time" />
+          <ScalarProperty Name="bill_no" ColumnName="bill_no" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ledger_register">
+      <EntityTypeMapping TypeName="AccountsdbModel.ledger_register">
+        <MappingFragment StoreEntitySet="ledger_register">
+          <ScalarProperty Name="details6" ColumnName="details6" />
+          <ScalarProperty Name="details5" ColumnName="details5" />
+          <ScalarProperty Name="details4" ColumnName="details4" />
+          <ScalarProperty Name="details3" ColumnName="details3" />
+          <ScalarProperty Name="details2" ColumnName="details2" />
+          <ScalarProperty Name="details1" ColumnName="details1" />
+          <ScalarProperty Name="c_group_code" ColumnName="c_group_code" />
+          <ScalarProperty Name="b_group_code" ColumnName="b_group_code" />
+          <ScalarProperty Name="a_group_code" ColumnName="a_group_code" />
+          <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+          <ScalarProperty Name="special_code" ColumnName="special_code" />
+          <ScalarProperty Name="group_code" ColumnName="group_code" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="is_enabled" ColumnName="is_enabled" />
+          <ScalarProperty Name="is_removable" ColumnName="is_removable" />
+          <ScalarProperty Name="is_editable" ColumnName="is_editable" />
+          <ScalarProperty Name="address3" ColumnName="address3" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="alternate_name" ColumnName="alternate_name" />
+          <ScalarProperty Name="ledger" ColumnName="ledger" />
+          <ScalarProperty Name="ledger_code" ColumnName="ledger_code" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ledger_transactions">
+      <EntityTypeMapping TypeName="AccountsdbModel.ledger_transactions">
+        <MappingFragment StoreEntitySet="ledger_transactions">
+          <ScalarProperty Name="financial_code" ColumnName="financial_code" />
+          <ScalarProperty Name="ref_bill_date_time" ColumnName="ref_bill_date_time" />
+          <ScalarProperty Name="ref_bill_no" ColumnName="ref_bill_no" />
+          <ScalarProperty Name="co_ledger" ColumnName="co_ledger" />
+          <ScalarProperty Name="c_group_code" ColumnName="c_group_code" />
+          <ScalarProperty Name="b_group_code" ColumnName="b_group_code" />
+          <ScalarProperty Name="a_group_code" ColumnName="a_group_code" />
+          <ScalarProperty Name="credit" ColumnName="credit" />
+          <ScalarProperty Name="debit" ColumnName="debit" />
+          <ScalarProperty Name="narration" ColumnName="narration" />
+          <ScalarProperty Name="ledger" ColumnName="ledger" />
+          <ScalarProperty Name="ledger_code" ColumnName="ledger_code" />
+          <ScalarProperty Name="serial_no" ColumnName="serial_no" />
+          <ScalarProperty Name="bill_type" ColumnName="bill_type" />
+          <ScalarProperty Name="bill_date_time" ColumnName="bill_date_time" />
+          <ScalarProperty Name="bill_no" ColumnName="bill_no" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="opening_balances">
+      <EntityTypeMapping TypeName="AccountsdbModel.opening_balances">
+        <MappingFragment StoreEntitySet="opening_balances">
+          <ScalarProperty Name="financial_code" ColumnName="financial_code" />
+          <ScalarProperty Name="credit" ColumnName="credit" />
+          <ScalarProperty Name="debit" ColumnName="debit" />
+          <ScalarProperty Name="narration" ColumnName="narration" />
+          <ScalarProperty Name="ledger" ColumnName="ledger" />
+          <ScalarProperty Name="ledger_code" ColumnName="ledger_code" />
+          <ScalarProperty Name="serial_no" ColumnName="serial_no" />
+          <ScalarProperty Name="bill_date_time" ColumnName="bill_date_time" />
+          <ScalarProperty Name="bill_no" ColumnName="bill_no" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="purchase">
+      <EntityTypeMapping TypeName="AccountsdbModel.purchase">
+        <MappingFragment StoreEntitySet="purchase">
+          <ScalarProperty Name="bill_amount" ColumnName="bill_amount" />
+          <ScalarProperty Name="party" ColumnName="party" />
+          <ScalarProperty Name="party_code" ColumnName="party_code" />
+          <ScalarProperty Name="ref_bill_date_time" ColumnName="ref_bill_date_time" />
+          <ScalarProperty Name="ref_bill_no" ColumnName="ref_bill_no" />
+          <ScalarProperty Name="financial_code" ColumnName="financial_code" />
+          <ScalarProperty Name="credit" ColumnName="credit" />
+          <ScalarProperty Name="debit" ColumnName="debit" />
+          <ScalarProperty Name="narration" ColumnName="narration" />
+          <ScalarProperty Name="ledger" ColumnName="ledger" />
+          <ScalarProperty Name="ledger_code" ColumnName="ledger_code" />
+          <ScalarProperty Name="serial_no" ColumnName="serial_no" />
+          <ScalarProperty Name="bill_date_time" ColumnName="bill_date_time" />
+          <ScalarProperty Name="bill_no" ColumnName="bill_no" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="purchase_return">
+      <EntityTypeMapping TypeName="AccountsdbModel.purchase_return">
+        <MappingFragment StoreEntitySet="purchase_return">
+          <ScalarProperty Name="bill_amount" ColumnName="bill_amount" />
+          <ScalarProperty Name="party" ColumnName="party" />
+          <ScalarProperty Name="party_code" ColumnName="party_code" />
+          <ScalarProperty Name="ref_bill_date_time" ColumnName="ref_bill_date_time" />
+          <ScalarProperty Name="ref_bill_no" ColumnName="ref_bill_no" />
+          <ScalarProperty Name="financial_code" ColumnName="financial_code" />
+          <ScalarProperty Name="credit" ColumnName="credit" />
+          <ScalarProperty Name="debit" ColumnName="debit" />
+          <ScalarProperty Name="narration" ColumnName="narration" />
+          <ScalarProperty Name="ledger" ColumnName="ledger" />
+          <ScalarProperty Name="ledger_code" ColumnName="ledger_code" />
+          <ScalarProperty Name="serial_no" ColumnName="serial_no" />
+          <ScalarProperty Name="bill_date_time" ColumnName="bill_date_time" />
+          <ScalarProperty Name="bill_no" ColumnName="bill_no" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sales">
+      <EntityTypeMapping TypeName="AccountsdbModel.sales">
+        <MappingFragment StoreEntitySet="sales">
+          <ScalarProperty Name="bill_amount" ColumnName="bill_amount" />
+          <ScalarProperty Name="party" ColumnName="party" />
+          <ScalarProperty Name="party_code" ColumnName="party_code" />
+          <ScalarProperty Name="ref_bill_date_time" ColumnName="ref_bill_date_time" />
+          <ScalarProperty Name="ref_bill_no" ColumnName="ref_bill_no" />
+          <ScalarProperty Name="financial_code" ColumnName="financial_code" />
+          <ScalarProperty Name="credit" ColumnName="credit" />
+          <ScalarProperty Name="debit" ColumnName="debit" />
+          <ScalarProperty Name="narration" ColumnName="narration" />
+          <ScalarProperty Name="ledger" ColumnName="ledger" />
+          <ScalarProperty Name="ledger_code" ColumnName="ledger_code" />
+          <ScalarProperty Name="serial_no" ColumnName="serial_no" />
+          <ScalarProperty Name="bill_date_time" ColumnName="bill_date_time" />
+          <ScalarProperty Name="bill_no" ColumnName="bill_no" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sales_return">
+      <EntityTypeMapping TypeName="AccountsdbModel.sales_return">
+        <MappingFragment StoreEntitySet="sales_return">
+          <ScalarProperty Name="bill_amount" ColumnName="bill_amount" />
+          <ScalarProperty Name="party" ColumnName="party" />
+          <ScalarProperty Name="party_code" ColumnName="party_code" />
+          <ScalarProperty Name="ref_bill_date_time" ColumnName="ref_bill_date_time" />
+          <ScalarProperty Name="ref_bill_no" ColumnName="ref_bill_no" />
+          <ScalarProperty Name="financial_code" ColumnName="financial_code" />
+          <ScalarProperty Name="credit" ColumnName="credit" />
+          <ScalarProperty Name="debit" ColumnName="debit" />
+          <ScalarProperty Name="narration" ColumnName="narration" />
+          <ScalarProperty Name="ledger" ColumnName="ledger" />
+          <ScalarProperty Name="ledger_code" ColumnName="ledger_code" />
+          <ScalarProperty Name="serial_no" ColumnName="serial_no" />
+          <ScalarProperty Name="bill_date_time" ColumnName="bill_date_time" />
+          <ScalarProperty Name="bill_no" ColumnName="bill_no" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

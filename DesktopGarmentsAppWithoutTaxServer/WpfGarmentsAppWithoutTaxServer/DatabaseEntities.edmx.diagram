@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e4b93179f41a4436865d816af63015ac" Name="Diagram1" >
+        <EntityTypeShape EntityType="Database9006Model.barcode_generator" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Database9006Model.ledger_register" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Database9006Model.ledger_transactions" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Database9006Model.product_properties" Width="1.5" PointX="6.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Database9006Model.product_property_code" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="Database9006Model.product_register" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="Database9006Model.unit_register" Width="1.5" PointX="4.75" PointY="9.75" />
+        <EntityTypeShape EntityType="Database9006Model.product_transactions" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Database9006Model.bill_nos" Width="1.5" PointX="0.75" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

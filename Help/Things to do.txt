@@ -1,0 +1,28 @@
+Add Order/ expiry medicines/ content search/extra features for each applications.
+Tax returns
+Accounts
+Add Settings
+Print
+User Accounts
+Client Server Messaging Communication
+Database installation, setup, Database password, schema password. 
+backup / restore
+Desktop application and client server application setups.
+client server setup, configuring server client communication(ip address) at the time of installation and after installation
+client numbering and logging user and client related datas on such actions(user accounts and client configuration)
+barcode reading and printing.
+remote registration.
+Server error handling
+Testing
+format number string
+select whole text on get focus on editable controls
+reports in android
+only show enabled product and ledgers
+Two type of tax: 1) tax included 2) tax added
+Format numbers and string on controls including edit controls
+remove unwanted comments
+optimizing codes
+indexing in database for faster access.
+F2 to create registers from transaction windows
+on stock show in sales and stock deletion, update not to check selected row data.
+

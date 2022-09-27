@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AccountsDBModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="AccountsDBModelStoreContainer">
+    <EntitySet Name="LedgerRegisters" EntityType="AccountsDBModel.Store.LedgerRegisters" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LedgerTransactions" EntityType="AccountsDBModel.Store.LedgerTransactions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CashReceipts" EntityType="AccountsDBModel.Store.CashReceipts" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="LedgerRegisters">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="longtext" Nullable="false" />
+    <Property Name="Ledger" Type="longtext" Nullable="false" />
+    <Property Name="AlternateName" Type="longtext" Nullable="true" />
+    <Property Name="Address1" Type="longtext" Nullable="true" />
+    <Property Name="Address2" Type="longtext" Nullable="true" />
+    <Property Name="Address3" Type="longtext" Nullable="true" />
+    <Property Name="Phone" Type="longtext" Nullable="true" />
+    <Property Name="PinNo" Type="longtext" Nullable="true" />
+    <Property Name="State" Type="longtext" Nullable="true" />
+    <Property Name="AccountNo" Type="longtext" Nullable="true" />
+    <Property Name="PanNo" Type="longtext" Nullable="true" />
+    <Property Name="SaleTaxNo" Type="longtext" Nullable="true" />
+    <Property Name="TinNo" Type="longtext" Nullable="true" />
+    <Property Name="IsEditable" Type="bool" Nullable="false" />
+    <Property Name="IsRemovable" Type="bool" Nullable="false" />
+    <Property Name="IsEnabled" Type="bool" Nullable="false" />
+    <Property Name="Type" Type="longtext" Nullable="false" />
+    <Property Name="GroupCode" Type="longtext" Nullable="true" />
+    <Property Name="UniqueID" Type="longtext" Nullable="true" />
+    <Property Name="Narration" Type="longtext" Nullable="true" />
+    <Property Name="AGroupCode" Type="longtext" Nullable="true" />
+    <Property Name="BGroupCode" Type="longtext" Nullable="true" />
+    <Property Name="CGroupCode" Type="longtext" Nullable="true" />
+  </EntityType>
+  <EntityType Name="LedgerTransactions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BillNo" Type="longtext" Nullable="false" />
+    <Property Name="BillDate" Type="datetime" Nullable="false" />
+    <Property Name="BillType" Type="longtext" Nullable="false" />
+    <Property Name="SerialNo" Type="int" Nullable="false" />
+    <Property Name="LedgerCode" Type="longtext" Nullable="false" />
+    <Property Name="Ledger" Type="longtext" Nullable="false" />
+    <Property Name="Narration" Type="longtext" Nullable="true" />
+    <Property Name="Debit" Type="int" Nullable="true" DefaultValue="0" />
+    <Property Name="Credit" Type="int" Nullable="true" DefaultValue="0" />
+    <Property Name="AGroupCode" Type="longtext" Nullable="true" />
+    <Property Name="BGroupCode" Type="longtext" Nullable="true" />
+    <Property Name="CGroupCode" Type="longtext" Nullable="true" />
+    <Property Name="CoLedger" Type="longtext" Nullable="true" />
+    <Property Name="RefBillNo" Type="longtext" Nullable="true" />
+    <Property Name="RefBillDate" Type="datetime" Nullable="true" />
+    <Property Name="FinancialCode" Type="longtext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CashReceipts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BillNo" Type="longtext" Nullable="false" />
+    <Property Name="BillDate" Type="datetime" Nullable="false" />
+    <Property Name="SerialNo" Type="int" Nullable="false" />
+    <Property Name="LedgerCode" Type="longtext" Nullable="false" />
+    <Property Name="Ledger" Type="longtext" Nullable="false" />
+    <Property Name="Narration" Type="longtext" Nullable="true" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="FinancialCode" Type="longtext" Nullable="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,12 @@
+Purchase Interstate = PI
+Purchase Wholesale = PW
+Sales Interstate = SI
+Sales Wholesale = SW
+Sales Local/Retail = SL
+Purchase Return Interstate = PRI
+Purchase Return Wholesale = PRW
+Sales Return Interstate = SRI
+Sales Return Wholesale = SRW
+Sales Return Local/Retail = SRL
+Stock Addition = SA
+Stock Deletion = SD

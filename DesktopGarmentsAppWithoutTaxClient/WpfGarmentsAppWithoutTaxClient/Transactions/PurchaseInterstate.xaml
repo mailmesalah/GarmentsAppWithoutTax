@@ -1,0 +1,202 @@
+﻿<Window x:Class="WpfClientApp.Transactions.PurchaseInterstate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="Interstate Purchase" Height="736" Width="1032" FontFamily="Century Gothic" Background="#FF101040" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" TextOptions.TextFormattingMode="Display" FontSize="14" Foreground="White" FontWeight="SemiBold" BorderBrush="White" BorderThickness="2" ResizeMode="NoResize" Topmost="True">
+    <Grid Margin="0,7,4,-7" HorizontalAlignment="Right">
+
+        <Label Content="Bill No" HorizontalAlignment="Left" Margin="-997,23,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.214,0.16" Foreground="White" Height="25" Width="83"/>
+        <TextBox Name="mTextBoxBillNo" HorizontalAlignment="Left" Height="25" Margin="-909,23,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" RenderTransformOrigin="0.5,0.522" TabIndex="0" LostFocus="mTextBoxBillNo_LostFocus" Background="#FF101040" Foreground="White"/>
+        <DatePicker Name="mDTPDate" SelectedDate="{x:Static sys:DateTime.Now}" HorizontalAlignment="Left" Margin="-769,21,0,0" VerticalAlignment="Top" Width="134" IsTodayHighlighted="True" LostFocus="mDTPDate_LostFocus" TabIndex="1" Background="#FF101040" Foreground="White" Height="25">
+            <DatePicker.Resources>
+                <Style TargetType="{x:Type DatePickerTextBox}">
+                    <Setter Property="Background" Value="#FF101040"/>
+                </Style>
+            </DatePicker.Resources>
+        </DatePicker>
+
+        <Label HorizontalContentAlignment="Left"  Content="Supplier" Width="84" HorizontalAlignment="Left" Margin="-997,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.214,0.16" Foreground="White" Height="25"/>
+        <ComboBox x:Name="mComboSupplier" Style="{DynamicResource ComboBoxAccountsStyle}" Background="#FF101040" Foreground="#FFFFFFFF" HorizontalAlignment="Left" Margin="-909,51,0,0" VerticalAlignment="Top" Width="274" Height="25" IsEditable="True" TabIndex="2" SelectionChanged="mComboSupplier_SelectionChanged">
+            <ComboBox.Resources>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="Background" Value="#FF101040"/>
+                    <Setter Property="Foreground" Value="#FFFFFFFF"/>
+                </Style>
+                <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="Blue"/>
+            </ComboBox.Resources>
+        </ComboBox>
+        <TextBox x:Name="mTextBoxAddress" HorizontalAlignment="Left" Height="25" Margin="-909,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="274" RenderTransformOrigin="0.5,0.5" TabIndex="3" Background="#FF101040" Foreground="White"/>
+        <Label Content="Narration" HorizontalAlignment="Left" Margin="-349,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.214,0.16" Foreground="White" Width="100" Height="25"/>
+        <TextBox x:Name="mTextBoxNarration" HorizontalAlignment="Left" Height="25" Margin="-226,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="215" RenderTransformOrigin="0.5,0.5" TabIndex="4" Background="#FF101040" Foreground="White" />
+
+        <DataGrid Name="mDataGridContent" ItemsSource="{Binding mGridContent}" CanUserAddRows="False" HeadersVisibility="Column" AlternatingRowBackground="AliceBlue" AlternationCount="2" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" SelectionMode="Single" SelectionUnit="FullRow" EnableColumnVirtualization="False" EnableRowVirtualization="False" AutoGenerateColumns="False" Margin="-996,118,0,0" VerticalAlignment="Top" Height="297" SelectionChanged="mDataGridContent_SelectionChanged" FontWeight="Normal" Foreground="White" Background="#FF101040" ColumnHeaderHeight="30" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="988" >
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FF101040"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="Background" Value="#FF101040"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.332"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Sl No" Binding="{Binding SerialNo}"  IsReadOnly="True" Width="50">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Product" Binding="{Binding Product}" IsReadOnly="True" Width="200*"/>
+                <DataGridTextColumn Header="Unit" Binding="{Binding PurchaseUnit}" IsReadOnly="True" Width="80"/>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity,StringFormat=N3}"  IsReadOnly="True" Width="120">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Purchase Rate" Binding="{Binding PurchaseRate,StringFormat=N2}"  IsReadOnly="True" Width="120">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Gross Value" Binding="{Binding GrossValue,StringFormat=N2}"  IsReadOnly="True" Width="120">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Discount" Binding="{Binding ProductDiscount,StringFormat=N2}"  IsReadOnly="True" Width="120">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Total" Binding="{Binding Total,StringFormat=N2}"  IsReadOnly="True" Width="100*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="ProductCode" Binding="{Binding ProductCode}"  IsReadOnly="True" Visibility="Hidden"/>
+                <DataGridTextColumn Header="PurchaseUnitCode" Binding="{Binding PurchaseUnitCode}"  IsReadOnly="True" Visibility="Hidden"/>
+                <DataGridTextColumn Header="PurchaseUnitValue" Binding="{Binding PurchaseUnitValue}"  IsReadOnly="True" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Barcode" Binding="{Binding Barcode}"  IsReadOnly="True" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Interstate Rate" Binding="{Binding InterstateRate}"  IsReadOnly="True" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Wholesale Rate" Binding="{Binding WholesaleRate}"  IsReadOnly="True" Visibility="Hidden"/>
+                <DataGridTextColumn Header="MRP" Binding="{Binding MRP}"  IsReadOnly="True" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Brand" Binding="{Binding Brand}"  IsReadOnly="True" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Size" Binding="{Binding Size}"  IsReadOnly="True" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Colour" Binding="{Binding Colour}"  IsReadOnly="True" Visibility="Hidden"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Name="mLabelSerialNo" HorizontalContentAlignment="Center"  Content="Sl No" Width="50" HorizontalAlignment="Left" Margin="-994,422,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.214,0.16" Foreground="White" Height="25"/>
+        <ComboBox Name="mComboProducts" Style="{DynamicResource ComboBoxAccountsStyle}" Background="#FF101040" Foreground="#FFFFFFFF" HorizontalAlignment="Left" Margin="-939,422,0,0" VerticalAlignment="Top" Width="231" Height="25" IsEditable="True" TabIndex="5" SelectionChanged="mComboProducts_SelectionChanged">
+            <ComboBox.Resources>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="Background" Value="#FF101040"/>
+                    <Setter Property="Foreground" Value="#FFFFFFFF"/>
+                </Style>
+                <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="Blue"/>
+            </ComboBox.Resources>
+        </ComboBox>
+        <Label Content="Brand" HorizontalAlignment="Left" Margin="-956,469,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.214,0.16" Foreground="White" Width="122" Height="25"/>
+        <ComboBox x:Name="mComboBrand" Style="{DynamicResource ComboBoxAccountsStyle}" Background="#FF101040" Foreground="#FFFFFFFF" HorizontalAlignment="Left" Margin="-828,472,0,0" VerticalAlignment="Top" Width="120" Height="25" IsEditable="True" TabIndex="5">
+            <ComboBox.Resources>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="Background" Value="#FF101040"/>
+                    <Setter Property="Foreground" Value="#FFFFFFFF"/>
+                </Style>
+                <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="Blue"/>
+            </ComboBox.Resources>
+        </ComboBox>
+        <Label Content="Size" HorizontalAlignment="Left" Margin="-956,497,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.214,0.16" Foreground="White" Width="122" Height="25"/>
+        <ComboBox x:Name="mComboSize" Style="{DynamicResource ComboBoxAccountsStyle}" Background="#FF101040" Foreground="#FFFFFFFF" HorizontalAlignment="Left" Margin="-828,502,0,0" VerticalAlignment="Top" Width="120" Height="25" IsEditable="True" TabIndex="5">
+            <ComboBox.Resources>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="Background" Value="#FF101040"/>
+                    <Setter Property="Foreground" Value="#FFFFFFFF"/>
+                </Style>
+                <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="Blue"/>
+            </ComboBox.Resources>
+        </ComboBox>
+        <Label Content="Colour" HorizontalAlignment="Left" Margin="-956,526,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.23,0.111" Foreground="White" Width="122" Height="25" />
+        <ComboBox x:Name="mComboColour" Style="{DynamicResource ComboBoxAccountsStyle}" Background="#FF101040" Foreground="#FFFFFFFF" HorizontalAlignment="Left" Margin="-828,532,0,0" VerticalAlignment="Top" Width="120" Height="25" IsEditable="True" TabIndex="5">
+            <ComboBox.Resources>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="Background" Value="#FF101040"/>
+                    <Setter Property="Foreground" Value="#FFFFFFFF"/>
+                </Style>
+                <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="Blue"/>
+            </ComboBox.Resources>
+        </ComboBox>
+        <ComboBox x:Name="mComboUnits" Style="{DynamicResource ComboBoxAccountsStyle}" Background="#FF101040" Foreground="#FFFFFFFF" HorizontalAlignment="Left" Margin="-703,422,0,0" VerticalAlignment="Top" Width="80" Height="25" IsEditable="True" TabIndex="5" RenderTransformOrigin="0.506,0.12">
+            <ComboBox.Resources>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="Background" Value="#FF101040"/>
+                    <Setter Property="Foreground" Value="#FFFFFFFF"/>
+                </Style>
+                <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="Blue"/>
+            </ComboBox.Resources>
+        </ComboBox>
+        <TextBox Name="mTextBoxQuantity" HorizontalAlignment="Left" Height="25" Margin="-623,422,0,0" TextWrapping="Wrap" Text="{Binding Value,StringFormat=N3}" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.522" TabIndex="5" Background="#FF101040" Foreground="White"  TextChanged="mTextBoxQuantity_TextChanged"/>
+        <TextBox Name="mTextBoxPurchaseRate" HorizontalAlignment="Left" Height="25" Margin="-503,422,0,0" TextWrapping="Wrap" Text="{Binding Value,StringFormat=N2}" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.522" TabIndex="5" Background="#FF101040" Foreground="White" TextChanged="mTextBoxPurchaseRate_TextChanged"/>
+        <Label Content="Interstate Rate" HorizontalAlignment="Left" Margin="-630,472,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.214,0.16" Foreground="White" Width="122" Height="25"/>
+        <TextBox x:Name="mTextBoxInterstateRate" TextAlignment="Right" HorizontalAlignment="Right" Height="25" Margin="-503,473,383,0" TextWrapping="Wrap" Text="{Binding Value, StringFormat=N2}" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5" TabIndex="5" Background="#FF101040" Foreground="White" />
+        <Label Content="Wholesale Rate" HorizontalAlignment="Left" Margin="-630,500,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.214,0.16" Foreground="White" Width="122" Height="25"/>
+        <TextBox x:Name="mTextBoxWholesaleRate" TextAlignment="Right"  HorizontalAlignment="Right" Height="25" Margin="-503,501,383,0" TextWrapping="Wrap" Text="{Binding Value, StringFormat=N2}" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5" TabIndex="5" Background="#FF101040" Foreground="White" />
+        <Label Content="MRP" HorizontalAlignment="Left" Margin="-630,529,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.23,0.111" Foreground="White" Width="122" Height="25" />
+        <TextBox x:Name="mTextBoxMRP" TextAlignment="Right" HorizontalAlignment="Right" Height="25" Margin="-503,529,383,0" TextWrapping="Wrap" Text="{Binding Value, StringFormat=N2}" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5" TabIndex="5" Background="#FF101040" Foreground="White" />
+        <Label x:Name="mLabelGrossValue" HorizontalContentAlignment="Center"  Content="0.00" Width="120" HorizontalAlignment="Left" Margin="-382,422,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.214,0.16" Foreground="White" Height="25"/>
+        <TextBox x:Name="mTextBoxProductDiscount" HorizontalAlignment="Left" Height="25" Margin="-261,422,0,0" TextWrapping="Wrap" Text="{Binding Value,StringFormat=N2}" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5" TabIndex="5" Background="#FF101040" Foreground="White" TextChanged="mTextBoxProductDiscount_TextChanged"/>
+        <Label x:Name="mLabelTotal" HorizontalContentAlignment="Center"  Content="0.00" Width="123" HorizontalAlignment="Left" Margin="-136,422,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.214,0.16" Foreground="White" Height="25"/>
+
+        <Button Name="mButtonAdd"  Content="Add" HorizontalAlignment="Left" Margin="-994,646,0,0" VerticalAlignment="Top" Width="114" Height="35" Click="mButtonAdd_Click" TabIndex="10"/>
+        <Button Name="mButtonRemove" Content="Remove" HorizontalAlignment="Left" Margin="-874,646,0,0" VerticalAlignment="Top" Width="114" Height="35" Click="mButtonRemove_Click" TabIndex="14"/>
+        <Button Name="mButtonDelete"  Content="Delete" HorizontalAlignment="Left" Margin="-365,646,0,0" VerticalAlignment="Top" Width="114" Height="35" Click="mButtonDelete_Click" TabIndex="15"/>
+        <Button Name="mButtonSave" Content="Save" HorizontalAlignment="Left" Margin="-246,646,0,0" VerticalAlignment="Top" Width="114" Height="35" Click="mButtonSave_Click" TabIndex="21"/>
+        <Button Name="mButtonClose" Content="Close" HorizontalAlignment="Left" Margin="-127,646,0,0" VerticalAlignment="Top" Width="114" Height="35" Click="mButtonClose_Click" TabIndex="13"/>
+        <Button x:Name="mButtonNew"  Content="New" HorizontalAlignment="Left" Margin="-484,646,0,0" VerticalAlignment="Top" Width="114" Height="35" Click="mButtonNew_Click" TabIndex="12"/>
+
+        <Label Content="Financial Year" HorizontalAlignment="Left" Margin="-349,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.214,0.16" Foreground="White" Height="25"/>
+        <ComboBox x:Name="mComboFinancialYear" Style="{DynamicResource ComboBoxAccountsStyle}" Background="#FF101040" Foreground="#FFFFFFFF" HorizontalAlignment="Left" Margin="-226,19,0,0" VerticalAlignment="Top" Width="215" Height="25" IsEditable="True" LostFocus="mComboFinancialYear_LostFocus" TabIndex="16">
+            <ComboBox.Resources>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="Background" Value="#FF101040"/>
+                    <Setter Property="Foreground" Value="#FFFFFFFF"/>
+                </Style>
+                <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="Blue"/>
+            </ComboBox.Resources>
+        </ComboBox>
+        <Button x:Name="mPrint"  Content="Print" HorizontalAlignment="Left" Margin="-623,19,0,0" VerticalAlignment="Top" Width="114" Height="35"  TabIndex="17"/>
+
+        <Label Content="Extra Expense" HorizontalAlignment="Left" Margin="-259,475,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.214,0.16" Foreground="White" Width="100" Height="25"/>
+        <TextBox x:Name="mTextBoxExpense" TextAlignment="Right" HorizontalAlignment="Right" Height="25" Margin="-154,475,12,0" TextWrapping="Wrap" Text="{Binding Value,StringFormat=N2}" VerticalAlignment="Top" Width="142" RenderTransformOrigin="0.5,0.5" TabIndex="18" Background="#FF101040" Foreground="White" TextChanged="mTextBoxExpense_TextChanged"/>
+        <Label Content="Discount" HorizontalAlignment="Left" Margin="-259,502,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.214,0.16" Foreground="White" Width="100" Height="25"/>
+        <TextBox x:Name="mTextBoxDiscount" TextAlignment="Right"  HorizontalAlignment="Right" Height="25" Margin="-154,503,12,0" TextWrapping="Wrap" Text="{Binding Value,StringFormat=N2}" VerticalAlignment="Top" Width="142" RenderTransformOrigin="0.5,0.5" TabIndex="19" Background="#FF101040" Foreground="White" TextChanged="mTextBoxDiscount_TextChanged"/>
+        <Label Content="Grand Total" HorizontalAlignment="Left" Margin="-259,529,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.23,0.111" Foreground="White" Width="100" Height="25"/>
+        <Label x:Name="mLabelGrandTotal" HorizontalContentAlignment="Right"  Content="Grand Total" Width="142" HorizontalAlignment="Left" Margin="-154,532,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.214,0.16" Foreground="White" Height="25"/>
+        <Label Content="Advance" HorizontalAlignment="Left" Margin="-259,556,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.23,0.111" Foreground="White" Width="100" Height="25" />
+        <TextBox x:Name="mTextBoxAdvance" TextAlignment="Right" HorizontalAlignment="Right" Height="25" Margin="-154,560,12,0" TextWrapping="Wrap" Text="{Binding Value,StringFormat=N2}" VerticalAlignment="Top" Width="142" RenderTransformOrigin="0.5,0.5" TabIndex="20" Background="#FF101040" Foreground="White" TextChanged="mTextBoxAdvance_TextChanged"/>
+        <Label Content="Balance" HorizontalAlignment="Left" Margin="-259,583,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.23,0.111" Foreground="White" Width="100" Height="25"/>
+        <Label x:Name="mLabelBalance" HorizontalContentAlignment="Right"  Content="Balance" Width="142" HorizontalAlignment="Left" Margin="-154,583,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.214,0.16" Foreground="White" Height="25"/>
+
+
+    </Grid>
+</Window>

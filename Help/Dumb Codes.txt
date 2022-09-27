@@ -1,0 +1,39 @@
+<DataGrid Name="mDataGridCGroup" ItemsSource="{Binding ElementName=TrialBalanceWindow, Path=CGroupData}" CanUserAddRows="False" HeadersVisibility="Column"  CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" SelectionMode="Single" SelectionUnit="FullRow" EnableColumnVirtualization="False" EnableRowVirtualization="False" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="-768,79,0,0" VerticalAlignment="Top" Width="757" Height="372" FontWeight="Normal" Foreground="Black" Background="#FF000064" ColumnHeaderHeight="30" >
+                        <DataGrid.Resources>
+                            <Style TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Background" Value="#FF000064"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            </Style>
+                            <Style TargetType="{x:Type DataGridCell}">
+                                <Setter Property="Background" Value="#FF000064"/>
+                            </Style>
+                        </DataGrid.Resources>
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Sl No" Binding="{Binding SerialNo}"  IsReadOnly="True" Width="50">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Ledger" Binding="{Binding Ledger}" IsReadOnly="True" Width="350"/>
+                            <DataGridTextColumn Header="Debit" Binding="{Binding Debit,StringFormat=N2}" IsReadOnly="True" Width="200*">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Right"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Credit" Binding="{Binding Credit,StringFormat=N2}"  IsReadOnly="True" Width="200*">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Right"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="LedgerCode" Binding="{Binding LedgerCode}"  IsReadOnly="True" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="LedgerType" Binding="{Binding LedgerType}"  IsReadOnly="True" Visibility="Hidden"/>
+                        </DataGrid.Columns>
+
+                    </DataGrid>

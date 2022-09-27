@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="bank_deposits">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bill_no" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="bill_date_time" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="serial_no" Type="int" Nullable="false" />
+    <Property Name="ledger_code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ledger" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="narration" Type="varchar" MaxLength="150" />
+    <Property Name="amount" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+    <Property Name="financial_code" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="bank_code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="bank" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="bank_withdrawals">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bill_no" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="bill_date_time" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="serial_no" Type="int" Nullable="false" />
+    <Property Name="ledger_code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ledger" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="narration" Type="varchar" MaxLength="150" />
+    <Property Name="amount" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+    <Property Name="financial_code" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="bank_code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="bank" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="bill_nos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bank_deposit" Type="int" Nullable="false" />
+    <Property Name="bank_withdrawal" Type="int" Nullable="false" />
+    <Property Name="cash_payment" Type="int" Nullable="false" />
+    <Property Name="cash_receipt" Type="int" Nullable="false" />
+    <Property Name="journal_voucher" Type="int" Nullable="false" />
+    <Property Name="ledger_register" Type="int" Nullable="false" />
+    <Property Name="ledger_transaction" Type="int" Nullable="false" />
+    <Property Name="opening_balance" Type="int" Nullable="false" />
+    <Property Name="purchase" Type="int" Nullable="false" />
+    <Property Name="purchase_return" Type="int" Nullable="false" />
+    <Property Name="sales" Type="int" Nullable="false" />
+    <Property Name="sales_return" Type="int" Nullable="false" />
+    <Property Name="financial_code" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cash_payments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bill_no" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="bill_date_time" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="serial_no" Type="int" Nullable="false" />
+    <Property Name="ledger_code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ledger" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="narration" Type="varchar" MaxLength="150" />
+    <Property Name="amount" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+    <Property Name="financial_code" Type="varchar" MaxLength="4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cash_receipts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bill_no" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="bill_date_time" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="serial_no" Type="int" Nullable="false" />
+    <Property Name="ledger_code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ledger" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="narration" Type="varchar" MaxLength="150" />
+    <Property Name="amount" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+    <Property Name="financial_code" Type="varchar" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="journal_vouchers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bill_no" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="bill_date_time" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="serial_no" Type="int" Nullable="false" />
+    <Property Name="ledger_code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ledger" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="narration" Type="varchar" MaxLength="150" />
+    <Property Name="debit" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+    <Property Name="credit" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+    <Property Name="financial_code" Type="varchar" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="ledger_register">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ledger_code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ledger" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="alternate_name" Type="varchar" MaxLength="200" />
+    <Property Name="address1" Type="varchar" MaxLength="100" />
+    <Property Name="address2" Type="varchar" MaxLength="100" />
+    <Property Name="address3" Type="varchar" MaxLength="100" />
+    <Property Name="is_editable" Type="bool" />
+    <Property Name="is_removable" Type="bool" />
+    <Property Name="is_enabled" Type="bool" />
+    <Property Name="type" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="group_code" Type="varchar" MaxLength="20" />
+    <Property Name="special_code" Type="varchar" MaxLength="20" />
+    <Property Name="unique_id" Type="varchar" MaxLength="100" />
+    <Property Name="a_group_code" Type="varchar" MaxLength="20" />
+    <Property Name="b_group_code" Type="varchar" MaxLength="20" />
+    <Property Name="c_group_code" Type="varchar" MaxLength="20" />
+    <Property Name="details1" Type="varchar" MaxLength="200" />
+    <Property Name="details2" Type="varchar" MaxLength="200" />
+    <Property Name="details3" Type="varchar" MaxLength="200" />
+    <Property Name="details4" Type="varchar" MaxLength="200" />
+    <Property Name="details5" Type="varchar" MaxLength="200" />
+    <Property Name="details6" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="ledger_transactions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bill_no" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="bill_date_time" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="bill_type" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="serial_no" Type="int" Nullable="false" />
+    <Property Name="ledger_code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ledger" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="narration" Type="varchar" MaxLength="150" />
+    <Property Name="debit" Type="decimal" Precision="30" Scale="5" />
+    <Property Name="credit" Type="decimal" Precision="30" Scale="5" />
+    <Property Name="a_group_code" Type="varchar" MaxLength="20" />
+    <Property Name="b_group_code" Type="varchar" MaxLength="20" />
+    <Property Name="c_group_code" Type="varchar" MaxLength="20" />
+    <Property Name="co_ledger" Type="varchar" MaxLength="100" />
+    <Property Name="ref_bill_no" Type="varchar" MaxLength="20" />
+    <Property Name="ref_bill_date_time" Type="datetime" Precision="0" />
+    <Property Name="financial_code" Type="longtext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="opening_balances">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bill_no" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="bill_date_time" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="serial_no" Type="int" Nullable="false" />
+    <Property Name="ledger_code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ledger" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="narration" Type="varchar" MaxLength="150" />
+    <Property Name="debit" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+    <Property Name="credit" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+    <Property Name="financial_code" Type="varchar" MaxLength="4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="purchase">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bill_no" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="bill_date_time" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="serial_no" Type="int" Nullable="false" />
+    <Property Name="ledger_code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ledger" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="narration" Type="varchar" MaxLength="150" />
+    <Property Name="debit" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+    <Property Name="credit" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+    <Property Name="financial_code" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="ref_bill_no" Type="varchar" MaxLength="20" />
+    <Property Name="ref_bill_date_time" Type="datetime" Precision="0" />
+    <Property Name="party_code" Type="varchar" MaxLength="20" />
+    <Property Name="party" Type="varchar" MaxLength="100" />
+    <Property Name="bill_amount" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="purchase_return">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bill_no" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="bill_date_time" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="serial_no" Type="int" Nullable="false" />
+    <Property Name="ledger_code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ledger" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="narration" Type="varchar" MaxLength="150" />
+    <Property Name="debit" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+    <Property Name="credit" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+    <Property Name="financial_code" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="ref_bill_no" Type="varchar" MaxLength="20" />
+    <Property Name="ref_bill_date_time" Type="datetime" Precision="0" />
+    <Property Name="party_code" Type="varchar" MaxLength="20" />
+    <Property Name="party" Type="varchar" MaxLength="100" />
+    <Property Name="bill_amount" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sales">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bill_no" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="bill_date_time" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="serial_no" Type="int" Nullable="false" />
+    <Property Name="ledger_code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ledger" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="narration" Type="varchar" MaxLength="150" />
+    <Property Name="debit" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+    <Property Name="credit" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+    <Property Name="financial_code" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="ref_bill_no" Type="varchar" MaxLength="20" />
+    <Property Name="ref_bill_date_time" Type="datetime" Precision="0" />
+    <Property Name="party_code" Type="varchar" MaxLength="20" />
+    <Property Name="party" Type="varchar" MaxLength="100" />
+    <Property Name="bill_amount" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sales_return">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bill_no" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="bill_date_time" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="serial_no" Type="int" Nullable="false" />
+    <Property Name="ledger_code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ledger" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="narration" Type="varchar" MaxLength="150" />
+    <Property Name="debit" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+    <Property Name="credit" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+    <Property Name="financial_code" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="ref_bill_no" Type="varchar" MaxLength="20" />
+    <Property Name="ref_bill_date_time" Type="datetime" Precision="0" />
+    <Property Name="party_code" Type="varchar" MaxLength="20" />
+    <Property Name="party" Type="varchar" MaxLength="100" />
+    <Property Name="bill_amount" Type="decimal" Precision="30" Scale="5" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="StoreContainer">
+    <EntitySet Name="bank_deposits" EntityType="Self.bank_deposits" Schema="accountsdb" store:Type="Tables" />
+    <EntitySet Name="bank_withdrawals" EntityType="Self.bank_withdrawals" Schema="accountsdb" store:Type="Tables" />
+    <EntitySet Name="bill_nos" EntityType="Self.bill_nos" Schema="accountsdb" store:Type="Tables" />
+    <EntitySet Name="cash_payments" EntityType="Self.cash_payments" Schema="accountsdb" store:Type="Tables" />
+    <EntitySet Name="cash_receipts" EntityType="Self.cash_receipts" Schema="accountsdb" store:Type="Tables" />
+    <EntitySet Name="journal_vouchers" EntityType="Self.journal_vouchers" Schema="accountsdb" store:Type="Tables" />
+    <EntitySet Name="ledger_register" EntityType="Self.ledger_register" Schema="accountsdb" store:Type="Tables" />
+    <EntitySet Name="ledger_transactions" EntityType="Self.ledger_transactions" Schema="accountsdb" store:Type="Tables" />
+    <EntitySet Name="opening_balances" EntityType="Self.opening_balances" Schema="accountsdb" store:Type="Tables" />
+    <EntitySet Name="purchase" EntityType="Self.purchase" Schema="accountsdb" store:Type="Tables" />
+    <EntitySet Name="purchase_return" EntityType="Self.purchase_return" Schema="accountsdb" store:Type="Tables" />
+    <EntitySet Name="sales" EntityType="Self.sales" Schema="accountsdb" store:Type="Tables" />
+    <EntitySet Name="sales_return" EntityType="Self.sales_return" Schema="accountsdb" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

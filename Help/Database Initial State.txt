@@ -1,0 +1,2 @@
+1) One row with default value should be there in 'bill_nos' table
+2) 'ledger_register' should be filled with the initial basic entries

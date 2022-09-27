@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="AccountsDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="AccountsDBModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="LedgerRegisters" EntityType="AccountsDBModel.LedgerRegister" />
+    <EntitySet Name="LedgerTransactions" EntityType="AccountsDBModel.LedgerTransactions" />
+    <EntitySet Name="CashReceipts" EntityType="AccountsDBModel.CashReceipts" />
+  </EntityContainer>
+  <EntityType Name="LedgerRegister">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" Nullable="false" />
+    <Property Name="Ledger" Type="String" Nullable="false" />
+    <Property Name="AlternateName" Type="String" Nullable="true" />
+    <Property Name="Address1" Type="String" Nullable="true" />
+    <Property Name="Address2" Type="String" Nullable="true" />
+    <Property Name="Address3" Type="String" Nullable="true" />
+    <Property Name="Phone" Type="String" Nullable="true" />
+    <Property Name="PinNo" Type="String" Nullable="true" />
+    <Property Name="State" Type="String" Nullable="true" />
+    <Property Name="AccountNo" Type="String" Nullable="true" />
+    <Property Name="PanNo" Type="String" Nullable="true" />
+    <Property Name="SaleTaxNo" Type="String" Nullable="true" />
+    <Property Name="TinNo" Type="String" Nullable="true" />
+    <Property Name="IsEditable" Type="Boolean" Nullable="false" />
+    <Property Name="IsRemovable" Type="Boolean" Nullable="false" />
+    <Property Name="IsEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="Type" Type="String" Nullable="false" />
+    <Property Name="GroupCode" Type="String" Nullable="true" />
+    <Property Name="UniqueID" Type="String" Nullable="true" />
+    <Property Name="Narration" Type="String" Nullable="true" />
+    <Property Name="AGroupCode" Type="String" Nullable="true" />
+    <Property Name="BGroupCode" Type="String" Nullable="true" />
+    <Property Name="CGroupCode" Type="String" Nullable="true" />
+  </EntityType>
+  <EntityType Name="LedgerTransactions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BillNo" Type="String" Nullable="false" />
+    <Property Name="BillDate" Type="DateTime" Nullable="false" />
+    <Property Name="BillType" Type="String" Nullable="false" />
+    <Property Name="SerialNo" Type="Int32" Nullable="false" />
+    <Property Name="LedgerCode" Type="String" Nullable="false" />
+    <Property Name="Ledger" Type="String" Nullable="false" />
+    <Property Name="Narration" Type="String" Nullable="true" />
+    <Property Name="Debit" Type="Int32" Nullable="true" DefaultValue="0" />
+    <Property Name="Credit" Type="Int32" Nullable="true" DefaultValue="0" />
+    <Property Name="AGroupCode" Type="String" Nullable="true" />
+    <Property Name="BGroupCode" Type="String" Nullable="true" />
+    <Property Name="CGroupCode" Type="String" Nullable="true" />
+    <Property Name="CoLedger" Type="String" Nullable="true" />
+    <Property Name="RefBillNo" Type="String" Nullable="true" />
+    <Property Name="RefBillDate" Type="DateTime" Nullable="true" />
+    <Property Name="FinancialCode" Type="String" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CashReceipts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BillNo" Type="String" Nullable="false" />
+    <Property Name="BillDate" Type="DateTime" Nullable="false" />
+    <Property Name="SerialNo" Type="Int32" Nullable="false" />
+    <Property Name="LedgerCode" Type="String" Nullable="false" />
+    <Property Name="Ledger" Type="String" Nullable="false" />
+    <Property Name="Narration" Type="String" Nullable="true" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="FinancialCode" Type="String" Nullable="false" />
+  </EntityType>
+</Schema>
